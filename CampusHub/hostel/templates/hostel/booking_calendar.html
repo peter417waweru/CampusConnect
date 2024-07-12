@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Booking Calendar for {{ hostel.name }}</h1>
+<ul>
+    {% for booking in bookings %}
+    <li>{{ booking.start_date }} to {{ booking.end_date }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

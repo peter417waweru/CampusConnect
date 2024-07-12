@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ hostel.name }}</h1>
+<p>{{ hostel.description }}</p>
+<p>Amenities: {{ hostel.amenities }}</p>
+<p>Rental Rate: ${{ hostel.rental_rate }}</p>
+{% if hostel.image %}
+<img src="{{ hostel.image.url }}" alt="{{ hostel.name }}">
+{% else %}
+<p>No image available</p>
+{% endif %}
+<ul>
+    <li><a href="{% url 'hostel:booking_calendar' hostel.id %}">View Booking Calendar</a></li>
+    <li><a href="{% url 'hostel:submit_application' hostel.id %}">Submit Rental Application</a></li>
+</ul>
+{% endblock %}

@@ -1,0 +1,26 @@
+<!-- uber/templates/uber/driver_profile.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Driver Profile</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <h3>Driver Information</h3>
+    {{ driver_form.as_p }}
+    
+    <h3>Vehicle Information</h3>
+    {{ vehicle_form.as_p }}
+    
+    <button type="submit">Update Profile</button>
+</form>
+
+<p><strong>Phone Number:</strong> {{ driver.phone_number }}</p>
+<p><strong>Address:</strong> {{ driver.address }}</p>
+<p><strong>License Number:</strong> {{ driver.license_number }}</p>
+<p><strong>Car Model:</strong> {{ vehicle.car_model }}</p>
+<p><strong>Car License Plate:</strong> {{ vehicle.car_license_plate }}</p>
+<p><strong>Available:</strong> {{ vehicle.is_available }}</p>
+
+{% endblock %}

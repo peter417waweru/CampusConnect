@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Marketplace</h1>
+<ul>
+    <li><a href="{% url 'shoptreat:cafeteria_menu' %}">Cafeteria</a></li>
+    <li><a href="{% url 'shoptreat:shop_browse' %}">Shop</a></li>
+    <li><a href="{% url 'shoptreat:shopping_cart' %}">Shopping Cart</a></li>
+</ul>
+{% endblock %}

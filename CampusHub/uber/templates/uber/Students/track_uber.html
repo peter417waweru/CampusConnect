@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+    <h1>Track Uber</h1>
+    <p>pickup_location {{ uber_request.pickup_location }} </p>
+    <p>Destination: {{ uber_request.destination }}</p>
+    <p>status: {{ uber_request.status }}</p>
+    <!-- Placeholder for real-time tracking -->
+</main>
+{% endblock %}

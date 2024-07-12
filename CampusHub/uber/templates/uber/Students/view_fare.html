@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>View Fare Estimate</h1>
+<form id="fare-form" method="post">
+    {% csrf_token %}
+    <input type="text" name="origin" placeholder="Enter origin" required>
+    <input type="text" name="destination" placeholder="Enter destination" required>
+    <button type="submit">Get Fare Estimate</button>
+</form>
+<div id="fare-result"></div>
+
+<script>
+    document.getElementById('fare-form').onsubmit = async function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        const response = await fetch("{% url 'uber:view_fare' %}", {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRFToken': formData.get('csrfmiddlewaretoken')
+            }
+        });
+        const result = await response.json();
+        document.getElementById('fare-result').innerText = `Estimated Fare: ${result.fare}`;
+    }
+</script>
+{% endblock %}

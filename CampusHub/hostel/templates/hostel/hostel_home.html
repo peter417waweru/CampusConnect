@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Hostel Accommodation</h1>
+<ul>
+    <li><a href="{% url 'hostel:view_hostels' %}">View Available Hostels</a></li>
+    {% if user.is_staff %}
+    <li><a href="{% url 'hostel:add_hostel' %}">Add a New Hostel</a></li>
+    {% endif %}
+</ul>
+{% endblock %}

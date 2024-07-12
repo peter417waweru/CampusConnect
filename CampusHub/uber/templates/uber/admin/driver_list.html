@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Driver List</title>
+</head>
+<body>
+    <h1>List of Drivers</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email (Optional)</th>
+                </tr>
+        </thead>
+        <tbody>
+            {% for driver in drivers %}  <tr>
+                <td>{{ driver.username }}</td>
+                <td>{{ driver.email }}</td>  </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Feedback</h1>
+<ul>
+    {% for feedback in feedbacks %}
+        <li>{{ feedback.message }} - {{ feedback.user.username }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

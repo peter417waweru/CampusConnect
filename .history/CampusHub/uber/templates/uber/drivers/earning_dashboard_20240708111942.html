@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+    <h1>Driver Earnings Dashboard</h1>
+    {% if user.is_authenticated %}
+    <h2>Welcome, {{ user.username }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Record Trip</button>
+    </form>
+
+    <h2>Your Trips</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Distance</th>
+                <th>Fare</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for trip in trips %}
+            <tr>
+                <td>{{ trip.distance }}</td>
+                <td>{{ trip.fare }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3>Total Earnings: {{ total_earnings }}</h3>
+    {% else %}
+    <p>Please log in to access your earnings dashboard.</p>
+    <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+</main>
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+    <h1>Rate Your Uber</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="rating">Rating (1-5):</label>
+        <input type="number" id="rating" name="rating" min="1" max="5" required><br>
+        <button type="submit">Submit Rating</button>
+    </form>
+</main>
+{% endblock %}
+

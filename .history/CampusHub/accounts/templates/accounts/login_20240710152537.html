@@ -1,0 +1,71 @@
+<!-- accounts/templates/accounts/login.html -->
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Login</h2>
+    
+    <p>Which department do you belong to?</p>
+    <select id="department-select">
+        <option value="" disabled selected>Select your department</option>
+        <option value="student">Student</option>
+        <option value="uber_driver">Uber Driver</option>
+        <option value="hostel_manager">Hostel Manager</option>
+        <option value="cafeteria_staff">Cafeteria Staff</option>
+        <option value="shop_owner">Shop Owner</option>
+    </select>
+
+    <div id="login-forms">
+        <div id="student-login" class="login-form" style="display: none;">
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Login as Student</button>
+            </form>
+        </div>
+        <div id="uber_driver-login" class="login-form" style="display: none;">
+            <form method="POST" action="{% url 'uber:driver_login' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Login as Uber Driver</button>
+            </form>
+        </div>
+        <div id="hostel_manager-login" class="login-form" style="display: none;">
+            <form method="POST" action="{% url 'hostel:manager_login' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Login as Hostel Manager</button>
+            </form>
+        </div>
+        <div id="cafeteria_staff-login" class="login-form" style="display: none;">
+            <form method="POST" action="{% url 'shoptreat:cafeteria_staff_login' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Login as Cafeteria Staff</button>
+            </form>
+        </div>
+        <div id="shop_owner-login" class="login-form" style="display: none;">
+            <form method="POST" action="{% url 'shoptreat:shop_owner_login' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Login as Shop Owner</button>
+            </form>
+        </div>
+    </div>
+
+    <p>Don't have an account yet?</p>
+    <a href="{% url 'register' %}">Sign up</a>
+
+    <script>
+        document.getElementById('department-select').addEventListener('change', function() {
+            var value = this.value;
+            var forms = document.querySelectorAll('.login-form');
+            forms.forEach(function(form) {
+                form.style.display = 'none';
+            });
+            if (value) {
+                document.getElementById(value + '-login').style.display = 'block';
+            }
+        });
+    </script>
+
+{% endblock content %}

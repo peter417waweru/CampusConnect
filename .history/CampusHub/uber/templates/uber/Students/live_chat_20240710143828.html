@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Live Chat with Driver</h1>
+<div id="chat-box">
+    {% for message in chat_messages %}
+        <p><strong>{{ message.user.username }}:</strong> {{ message.message }}</p>
+    {% endfor %}
+</div>
+<form method="post">
+    {% csrf_token %}
+    <textarea name="message" required></textarea>
+    <button type="submit">Send</button>
+</form>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+    {% if request.user.is_authenticated %}
+        <p>Welcome, {{ request.user.username }}!</p>
+        {% if is_student %}
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'uber:home' %}">Uber Home</a>
+            <a href="{% url 'hostel:hostel_home' %}">Hostel List</a>
+            <!-- Add other general service links here -->
+        {% endif %}
+        <a href="{% url 'logout' %}">Logout</a>
+    {% endif %}
+</main>
+{% endblock content %}

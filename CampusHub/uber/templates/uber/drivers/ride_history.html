@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+    <h1>Ride History</h1>
+    <ul>
+        {% for ride in rides %}
+        <li>{{ ride.destination }} - {{ ride.updated_at }} - {{ ride.driver_rating }}</li>
+        {% endfor %}
+    </ul>
+</main>
+{% endblock content %}

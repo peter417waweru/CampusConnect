@@ -1,0 +1,13 @@
+<!-- hostel/templates/hostel/manager_login.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Hostel Manager Login</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+</form>
+<p>Don't have an account yet?</p>
+<a href="{% url 'register' %}">Sign up</a>
+{% endblock %}

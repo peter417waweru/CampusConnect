@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+    <h1>Ride Requests</h1>
+    <ul>
+        {% for uber_request in uber_requests %}
+        <li>
+            {{ uber_request.user.username }} - {{ uber_request.status }} - {{ uber_request.created_at }}
+            {% if uber_request.status == 'requested' %}
+            <form method="post" action="{% url 'uber:confirm_uber_request' pk=uber_request.pk %}">
+                {% csrf_token %}
+                <button type="submit">Confirm Request</button>
+            </form>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</main>
+{% endblock content %}

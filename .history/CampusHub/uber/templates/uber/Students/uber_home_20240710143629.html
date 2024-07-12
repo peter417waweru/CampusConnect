@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+    <h1>Uber Integration</h1>
+    <ul>
+        <li><a href="{% url 'uber:request_uber' %}">Order Uber</a></li>
+        <li><a href="{% url 'live_chat' %}">Live Chat with Uber Driver</a></li>
+        <li><a href="{% url 'uber:view_fare' %}">View Estimated Fares</a></li>
+        <li><a href="{% url 'uber:track_uber' pk=1 %}">Track Uber</a></li>
+        <li><a href="{% url 'uber:rate_uber' pk=1 %}">Rate Uber</a></li>
+    </ul>
+    <h2>Available Vehicles</h2>
+    <ul>
+        {% for vehicle in vehicles %}
+        <li>
+            <a href="{% url 'uber:request_uber' %}">
+                {{ vehicle.car_model }} - {{ vehicle.car_license_plate }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</main>
+{% endblock content %}

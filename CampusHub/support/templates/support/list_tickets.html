@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Support Tickets</h1>
+<ul>
+    {% for ticket in tickets %}
+        <li>{{ ticket.subject }} - {{ ticket.user.username }} - {{ ticket.status }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

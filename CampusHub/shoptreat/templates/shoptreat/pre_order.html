@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Pre-order a Meal</h1>
+<form method="post">
+    {% csrf_token %}
+    <!-- Add form fields for meal pre-order -->
+    <button type="submit">Pre-order</button>
+</form>
+{% endblock %}

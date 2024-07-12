@@ -1,0 +1,17 @@
+{
+  "git.ignoreLimitWarning": true,
+  "files.associations": {
+    "**/templates/*.html": "django-html",
+    "**/templates/*": "django-txt"
+  },
+  "emmet.includeLanguages": {
+    "django-html": "html"
+  },
+  "cSpell.words": [
+    "csrfmiddlewaretoken",
+    "orderitem",
+    "shopitem",
+    "shoptreat",
+    "uberrequest"
+  ]
+}

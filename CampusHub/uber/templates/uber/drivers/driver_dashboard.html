@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+    <h1>Driver Dashboard</h1>
+    <ul>
+        <li><a href="{% url 'uber:driver_profile' %}">View and Update Profile</a></li>
+        <li><a href="{% url 'uber:add_vehicle' %}">Add or Update Vehicle</a></li>
+        <li><a href="{% url 'uber:view_requests' %}">View Ride Requests</a></li>
+        <li><a href="{% url 'uber:current_ride' %}">Track Current Ride</a></li>
+        <li><a href="{% url 'uber:ride_history' %}">View Ride History</a></li>
+        <li><a href="{% url 'uber:earning_dashboard' %}">Earnings Dashboard</a></li>
+        <li><a href="{% url 'uber:live_chat_driver' %}">Live Chat with Rider</a></li>
+        <li><a href="{% url 'logout' %}">Log Out</a></li>
+    </ul>
+</main>
+{% endblock content %}

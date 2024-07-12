@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Available Hostels</h1>
+<ul>
+    {% for hostel in hostels %}
+    <li><a href="{% url 'hostel:hostel_detail' hostel.id %}">{{ hostel.name }}</a></li>
+    {% empty %}
+    <li>No hostels available at the moment.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

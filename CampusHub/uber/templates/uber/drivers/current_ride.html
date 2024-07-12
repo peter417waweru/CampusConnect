@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+    <h1>Current Ride</h1>
+    {% if ride %}
+    <p>Pickup Location: {{ ride.pickup_location }}</p>
+    <p>Destination: {{ ride.destination }}</p>
+    {% else %}
+    <p>No current ride.</p>
+    {% endif %}
+</main>
+{% endblock content %}

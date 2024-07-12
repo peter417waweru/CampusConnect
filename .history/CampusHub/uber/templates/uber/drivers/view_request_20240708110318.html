@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+    <h1>Ride Requests</h1>
+    <ul>
+        {% for request in requests %}
+        <li>{{ request.user.username }} - {{ request.destination }} - {{ request.created_at }}</li>
+        {% endfor %}
+    </ul>
+</main>
+{% endblock content %}

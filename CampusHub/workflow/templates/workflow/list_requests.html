@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Approval Requests</h1>
+<ul>
+    {% for request in requests %}
+        <li><a href="{% url 'workflow:request_detail' request.pk %}">{{ request.request_type }} by {{ request.user.username }}</a> - {{ request.status }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

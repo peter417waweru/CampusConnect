@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+    <h1>Order an Uber</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="pickup_location">Pickup Location:</label>
+        <input type="text" id="pickup_location" name="pickup_location" required><br>
+        <label for="destination">Destination:</label>
+        <input type="text" id="destination" name="destination" required><br>
+        <button type="submit">Order Uber</button>
+    </form>
+</main>
+{% endblock %}

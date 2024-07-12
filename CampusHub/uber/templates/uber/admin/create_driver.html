@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Driver</title>
+</head>
+<body>
+    <h1>Create New Driver</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Create Driver</button>
+    </form>
+    <br>
+    <a href="{% url 'uber:driver_list' %}">View Drivers List</a>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Support Home</h1>
+<ul>
+    <li><a href="{% url 'support:submit_feedback' %}">Submit Feedback</a></li>
+    <li><a href="{% url 'support:support_ticket' %}">Submit Support Ticket</a></li>
+    <li><a href="{% url 'support:list_feedback' %}">View Feedback</a></li>
+    <li><a href="{% url 'support:list_tickets' %}">View Support Tickets</a></li>
+</ul>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+    <h1>Order an Uber</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="pickup_location">Pickup Location:</label>
+        <input type="text" id="pickup_location" name="pickup_location" required><br>
+        <label for="destination">Destination:</label>
+        <input type="text" id="destination" name="destination" required><br>
+        <label for="fare_estimate">Fare Estimate:</label>
+        <input type="text" id="fare_estimate" name="fare_estimate" required><br>
+        <button type="submit">Order Uber</button>
+    </form>
+    {% if uber_request %}
+    <p>Your request for {{ uber_request.vehicle.car_license_plate }} was successful. Waiting for driver confirmation.</p>
+    <a href="{% url 'uber:track_uber' pk=uber_request.pk %}">Track Request</a>
+    {% endif %}
+</main>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Request Detail</h1>
+<p>{{ request.request_type }}</p>
+<p>{{ request.description }}</p>
+<p>Status: {{ request.status }}</p>
+{% if request.status == 'pending' %}
+    <form method="post" action="{% url 'workflow:approve_request' request.pk %}">
+        {% csrf_token %}
+        <button type="submit">Approve</button>
+    </form>
+    <form method="post" action="{% url 'workflow:reject_request' request.pk %}">
+        {% csrf_token %}
+        <button type="submit">Reject</button>
+    </form>
+{% endif %}
+{% endblock %}
